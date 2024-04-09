@@ -13,7 +13,7 @@ pipeline {
       }
       stage ('Deploy') {
         steps {
-            echo "${WORKSPACE}"
+            sh 'rsync -arvh ${WORKSPACE}/target/*.jar /opt/tomcat/apache-tomcat-9.0.87/webapps/'
         }
       }
   }
