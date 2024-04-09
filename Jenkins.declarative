@@ -11,9 +11,14 @@ pipeline {
           sh 'mvn clean install'
         }
       }
+      stage ('Test') {
+        steps {
+          sh 'echo "Test"'
+        }
+      }
       stage ('Deploy') {
         steps {
-            sh 'rsync -arvh ${WORKSPACE}/target/*.jar /opt/tomcat/apache-tomcat-9.0.87/webapps/'
+            sh 'rsync -arvh ${WORKSPACE}/target/*.jar /opt/tomcat/webapps/'
         }
       }
   }
