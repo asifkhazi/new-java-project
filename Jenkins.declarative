@@ -1,0 +1,20 @@
+pipeline {
+  agent any
+    stages {
+    stage ('SCM checkout') {
+      steps {
+        git branch: 'master' url: 'https://github.com/asifkhazi/java-tomcat-maven-example.git'
+      }
+    }
+    stage ('Build') {
+      steps {
+        sh 'mvn clean install'
+      }
+    }
+    stage ('Deploy') {
+      steps {
+        sh 'rsync -arzvh ${WORKSPACE}/target/*.war' /opt/tomcat/apache-tomcat-9.0.68/webapps/'
+      }
+    }
+  }
+}
