@@ -1,6 +1,6 @@
 node {
   satge ('SCM checkout') {
-    git branch: 'master', url: 'https://github.com/asifkhazi/Jenkins-Decalarative-sample-java-war-hello.git'
+    git branch: 'master', url: 'https://github.com/asifkhazi/new-java-project.git'
   }
   stage ('Test') {
     sh 'echo "Test"'
