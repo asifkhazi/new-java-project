@@ -9,6 +9,6 @@ node {
     sh 'mvn clean install'
   }
   stage ('Deploy') {
-    sh 'rsync -arzvh ${WORKSPACE}/target/*.war /opt/tomcat/webapps/'
+    sh 'rsync -arzvh ${WORKSPACE}/target/*.jar /opt/tomcat/webapps/'
   }
 }
