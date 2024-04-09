@@ -1,6 +1,6 @@
 node {
   satge ('SCM checkout') {
-    git branch: 'master', url: 'https://github.com/asifkhazi/new-java-project.git'
+    git branch: 'main', url: 'https://github.com/asifkhazi/new-java-project.git'
   }
   stage ('Test') {
     sh 'echo "Test"'
