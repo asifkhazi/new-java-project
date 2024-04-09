@@ -3,7 +3,7 @@ pipeline {
     stages {
     stage ('SCM checkout') {
       steps {
-        git branch: 'master' url: 'https://github.com/asifkhazi/java-tomcat-maven-example.git'
+        git branch: 'main' url: 'https://github.com/asifkhazi/new-java-project.git'
       }
     }
     stage ('Build') {
