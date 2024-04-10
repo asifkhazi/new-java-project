@@ -1,0 +1,20 @@
+pipeline {
+  agent {label 'Jenkins-Agent'}
+  stages {
+    stage ('scm checkout') {
+      steps {
+        git branch 'main', url: 'https://github.com/asifkhazi/new-java-project.git'
+      }
+    }
+    stage ('Build') {
+      steps {
+        sh 'mvn clean install'
+      }
+    }
+    stage ('deploy') {
+      steps {
+        sh 'scp ${WORKSPACE}/target/*.jar ubuntu@3.137.174.240:/opt/tomcat/webapps/'
+      }
+    }
+  }
+}
